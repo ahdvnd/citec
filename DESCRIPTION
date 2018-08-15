@@ -1,0 +1,21 @@
+Package: citec
+Title: Scrape data from CitEc citation database
+Version: 0.0.1
+Authors@R: person("Aboozar", "Hadavand", email = "hadavand.a@gmail.com", role = c("aut", "cre"))
+Description: Scrapes and downloads citation data from CitEc. CitEc is a RePEc service providing citation data for Economics. 
+Depends: R (>= 2.10)
+Imports:
+    dplyr,
+    knitr,
+    rvest,
+    stringr
+Suggests:
+    utils,
+    testthat,
+    rmarkdown
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+BugReports: https://github.com/ahdvnd/citec/issues
+VignetteBuilder: knitr

@@ -5,6 +5,9 @@
 #' @return A number indicating the author started actiity.
 #' @example citec_activeyr("pal24")
 #' @export citec_activeyr
+#' @importFrom dplyr %>%
+#' @importFrom xml2 read_html
+#' @importFrom rvest html_nodes html_text
 citec_activeyr <- function(id){
     tempurl <- paste("http://citec.repec.org/", id, sep = "")
     tls <- read_html(tempurl) %>%

@@ -5,6 +5,9 @@
 #' @return A list containing the h-index, the i10-index, and the number of citation for each author
 #' @example citec_hic("pal24")
 #' @export citec_hic
+#' @importFrom dplyr %>%
+#' @importFrom xml2 read_html
+#' @importFrom rvest html_nodes html_text
 citec_hic <- function(id){
     tempurl <- paste("http://citec.repec.org/", id, sep = "")
     tls <- read_html(tempurl) %>%

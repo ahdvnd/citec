@@ -6,7 +6,9 @@
 #' the number of papers published by an author
 #' @example citec_output("pal24")
 #' @export citec_output
-
+#' @importFrom dplyr %>%
+#' @importFrom xml2 read_html
+#' @importFrom rvest html_nodes html_text
 citec_output <- function(id){
     tempurl <- paste("http://citec.repec.org/", id, sep = "")
     tls <- read_html(tempurl) %>%

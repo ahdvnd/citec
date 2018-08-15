@@ -1,5 +1,5 @@
 Package: citec
-Title: Scrape data from CitEc citation database
+Title: Scrapes data from CitEc citation database
 Version: 0.0.1
 Authors@R: person("Aboozar", "Hadavand", email = "hadavand.a@gmail.com", role = c("aut", "cre"))
 Description: Scrapes and downloads citation data from CitEc. CitEc is a RePEc service providing citation data for Economics. 

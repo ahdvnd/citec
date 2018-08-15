@@ -6,7 +6,9 @@
 #' its publicaiton year, and the number of citations received.
 #' @example citec_paperlist("pal24")
 #' @export citec_paperlist
-
+#' @importFrom dplyr %>%
+#' @importFrom xml2 read_html
+#' @importFrom rvest html_nodes html_text
 citec_paperlist <- function(id){
     tempurl <- paste("http://citec.repec.org/", id, sep = "")
     a <- read_html(tempurl) %>%

@@ -5,7 +5,9 @@
 #' @return A number indicating the number of times an author has cited themselves
 #' @example citec_selfcite("pal24")
 #' @export citec_selfcite
-#'
+#' @importFrom dplyr %>%
+#' @importFrom xml2 read_html
+#' @importFrom rvest html_nodes html_text
 citec_selfcite <- function(id){
     tempurl <- paste("http://citec.repec.org/", id, sep = "")
     tls <- read_html(tempurl) %>%

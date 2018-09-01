@@ -11,10 +11,7 @@
 #' @importFrom rvest html_nodes html_text
 citec_name <- function(id){
     tempurl <- paste("http://citec.repec.org/", id, sep = "")
-    tls <- read_html(tempurl) %>%
-        html_nodes("h3") %>%
-        html_text() %>%
-        .[1] %>%
-        str_sub(1, -20)
+    htmldata <- read_html(tempurl)
+    tls <- idname(htmldata)
     return(tls)
 }

@@ -10,17 +10,7 @@
 #' @importFrom rvest html_nodes html_text
 citec_selfcite <- function(id){
     tempurl <- paste("http://citec.repec.org/", id, sep = "")
-    tls <- read_html(tempurl) %>%
-        html_nodes("td div") %>%
-        html_text() %>%
-        .[grep("RESEARCH ACTIVITY", .)+1] %>%
-        strsplit("[.]") %>%
-        unlist() %>%
-        .[grep("Total self citations", .)] %>%
-        strsplit(":")
-    tls <- tls[[1]][2] %>%
-        strsplit("\\(")
-    tls <- tls[[1]][1] %>%
-        as.numeric()
+    htmldata <- read_html(tempurl)
+    tls <- idselfcite(htmldata)
     return(tls)
 }

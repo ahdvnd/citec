@@ -10,16 +10,7 @@
 #' @importFrom rvest html_nodes html_text
 citec_activeyr <- function(id){
     tempurl <- paste("http://citec.repec.org/", id, sep = "")
-    tls <- read_html(tempurl) %>%
-        html_nodes("td div") %>%
-        html_text()
-    r1 <- grep("RESEARCH ACTIVITY", tls)
-    tls <- tls %>%
-        .[r1+1] %>%
-        strsplit("[(]") %>%
-        unlist() %>%
-        .[2] %>%
-        substr(1,4) %>%
-        as.numeric()
+    htmldata <- read_html(tempurl)
+    tls <- idactiveyr(htmldata)
     return(tls)
 }

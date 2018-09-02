@@ -3,6 +3,7 @@
 export(citec_activeyr)
 export(citec_affil)
 export(citec_allids)
+export(citec_df)
 export(citec_hic)
 export(citec_name)
 export(citec_otherpeople)

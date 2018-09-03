@@ -2,7 +2,7 @@
 % Please edit documentation in R/citec_selfcite.R
 \name{citec_selfcite}
 \alias{citec_selfcite}
-\title{Returns the number of self-cites ny the author}
+\title{Returns the number of self-cites by the author}
 \usage{
 citec_selfcite(id)
 }
@@ -14,5 +14,5 @@ each author can be found here: https://ideas.repec.org/cgi-bin/shortid.cgi}
 A number indicating the number of times an author has cited themselves
 }
 \description{
-Returns the number of self-cites ny the author
+Returns the number of self-cites by the author
 }

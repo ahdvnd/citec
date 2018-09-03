@@ -6,7 +6,6 @@
 #' @example citec_hic("pal24")
 #' @export citec_hic
 #' @importFrom dplyr %>%
-#' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_text
 citec_hic <- function(id){
     tempurl <- paste("http://citec.repec.org/", id, sep = "")

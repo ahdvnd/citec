@@ -14,9 +14,9 @@ each author can be found here: https://ideas.repec.org/cgi-bin/shortid.cgi}
 }
 \value{
 A dataframe containing the title of each publication, its type,
-its publicaiton year, the number of citations received, and the publishing
+its publication year, the number of citations received, and the publishing
 journal. For each row, it also contains information on the author of the
-publicaiton including name, affliation, number of papers, number of
+publicaiton including name, affiliation, number of papers, number of
 citations, and years of being active.
 }
 \description{

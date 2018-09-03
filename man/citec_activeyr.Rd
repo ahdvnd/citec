@@ -11,7 +11,7 @@ citec_activeyr(id)
 each author can be found here: https://ideas.repec.org/cgi-bin/shortid.cgi}
 }
 \value{
-A number indicating the author started actiity.
+A number indicating the author started activity.
 }
 \description{
 Returns the year the author started publishing

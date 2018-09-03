@@ -6,17 +6,14 @@
 #' @example citec_allids()
 #' @export citec_allids
 #' @importFrom dplyr %>%
-#' @importFrom rvest html_nodes html_attr
+#' @importFrom rvest html_nodes html_attr read_html
 citec_allids <- function(){
-    choice <- menu(c("Yes", "No"), title="This may take some time. Do you want to continue?")
-    if (choice==1){
-        df <- read_html("https://ideas.repec.org/i/eall.html") %>%
-            html_nodes("td a") %>%
-            html_attr('href') %>%
-            as.data.frame() %>%
-            .[-c(1:5), ]
-        str.ids <- regmatches(df, regexec('./(.*?)\\.', df))
-        ids <- sapply(str.ids, "[[", 2)
-        return(ids)
-    }
+    df <- read_html("https://ideas.repec.org/i/eall.html") %>%
+        html_nodes("td a") %>%
+        html_attr('href') %>%
+        as.data.frame() %>%
+        .[-c(1:5), ]
+    str.ids <- regmatches(df, regexec('./(.*?)\\.', df))
+    ids <- sapply(str.ids, "[[", 2)
+    return(ids)
 }

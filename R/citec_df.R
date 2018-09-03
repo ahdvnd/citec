@@ -10,7 +10,7 @@
 #' citations, and years of being active.
 #' @example citec_df(c("pal24", "pac16"))
 #' @export citec_df
-#' @importFrom dplyr %>%
+#' @importFrom dplyr %>% bind_rows read_html
 #' @importFrom rvest html_nodes html_text
 
 citec_df <- function(ids){

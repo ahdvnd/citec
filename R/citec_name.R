@@ -7,7 +7,7 @@
 #' @export citec_name
 #' @importFrom dplyr %>%
 #' @importFrom stringr str_sub
-#' @importFrom rvest html_nodes html_text
+#' @importFrom rvest html_nodes html_text read_html
 citec_name <- function(id){
     tempurl <- paste("http://citec.repec.org/", id, sep = "")
     htmldata <- read_html(tempurl)

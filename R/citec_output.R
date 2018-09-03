@@ -7,7 +7,7 @@
 #' @example citec_output("pal24")
 #' @export citec_output
 #' @importFrom dplyr %>%
-#' @importFrom rvest html_nodes html_text
+#' @importFrom rvest html_nodes html_text read_html
 citec_output <- function(id){
     tempurl <- paste("http://citec.repec.org/", id, sep = "")
     htmldata <- read_html(tempurl)

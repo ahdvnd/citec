@@ -11,7 +11,8 @@
 #' @example citec_otherpeople("pal24")
 #' @export citec_otherpeople
 #' @importFrom dplyr %>%
-#' @importFrom rvest html_nodes html_text read_html
+#' @importFrom rvest html_nodes html_text
+#' @importFrom xml2 read_html
 citec_otherpeople <- function(id){
     tempurl <- paste("http://citec.repec.org/", id, sep = "")
     tls <- read_html(tempurl) %>%

@@ -10,8 +10,9 @@
 #' citations, and years of being active.
 #' @example citec_df(c("pal24", "pac16"))
 #' @export citec_df
-#' @importFrom dplyr %>% bind_rows read_html
+#' @importFrom dplyr %>% bind_rows
 #' @importFrom rvest html_nodes html_text
+#' @importFrom xml2 read_html
 
 citec_df <- function(ids){
     tempurl <- paste("http://citec.repec.org/", ids, sep = "")

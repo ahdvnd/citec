@@ -8,7 +8,8 @@ Imports:
     dplyr,
     knitr,
     rvest,
-    stringr
+    stringr,
+    xml2
 Suggests:
     utils,
     testthat,

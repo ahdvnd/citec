@@ -6,7 +6,8 @@
 #' @example citec_activeyr("pal24")
 #' @export citec_activeyr
 #' @importFrom dplyr %>%
-#' @importFrom rvest html_nodes html_text read_html
+#' @importFrom rvest html_nodes html_text
+#' @importFrom xml2 read_html
 citec_activeyr <- function(id){
     tempurl <- paste("http://citec.repec.org/", id, sep = "")
     htmldata <- read_html(tempurl)

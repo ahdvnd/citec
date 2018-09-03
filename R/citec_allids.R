@@ -6,7 +6,8 @@
 #' @example citec_allids()
 #' @export citec_allids
 #' @importFrom dplyr %>%
-#' @importFrom rvest html_nodes html_attr read_html
+#' @importFrom rvest html_nodes html_attr
+#' @importFrom xml2 read_html
 citec_allids <- function(){
     df <- read_html("https://ideas.repec.org/i/eall.html") %>%
         html_nodes("td a") %>%

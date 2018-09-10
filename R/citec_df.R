@@ -9,7 +9,6 @@
 #' publicaiton including name, affiliation, number of papers, number of
 #' citations, and years of being active.
 #' @example citec_df(c("pal24", "pac16"))
-#' @export citec_df
 #' @importFrom dplyr %>% bind_rows
 #' @importFrom rvest html_nodes html_text
 #' @importFrom xml2 read_html
@@ -21,15 +20,15 @@ citec_df <- function(ids){
     for (i in 1:length(ids)){
         if (nrow(data[[i]])!=0){
             data[[i]]$id <- ids[i]
-            data[[i]]$name <- lapply(htmldata, function(x) idname(x))[[i]]
-            data[[i]]$activesince <- lapply(htmldata, function(x) idactiveyr(x))[[i]]
-            data[[i]]$affiliation <- lapply(htmldata, function(x) idaffil(x))[[i]]
-            data[[i]]$hindex <- lapply(htmldata, function(x) idhic(x))[[i]][[1]]
-            data[[i]]$i10index <- lapply(htmldata, function(x) idhic(x))[[i]][[2]]
-            data[[i]]$totalcitations <- lapply(htmldata, function(x) idhic(x))[[i]][[3]]
-            data[[i]]$narticles <- lapply(htmldata, function(x) idoutput(x))[[i]][[1]]
-            data[[i]]$npapers <- lapply(htmldata, function(x) idoutput(x))[[i]][[2]]
-            data[[i]]$nselfcite <- lapply(htmldata, function(x) idselfcite(x))[[i]]
+            data[[i]]$name <- idname(htmldata[[i]])
+            data[[i]]$activesince <- idactiveyr(htmldata[[i]])
+            data[[i]]$affiliation <- idaffil(htmldata[[i]])
+            data[[i]]$hindex <- idhic(htmldata[[i]])[[1]]
+            data[[i]]$i10index <- idhic(htmldata[[i]])[[2]]
+            data[[i]]$totalcitations <- idhic(htmldata[[i]])[[3]]
+            data[[i]]$narticles <- idoutput(htmldata[[i]])[[1]]
+            data[[i]]$npapers <- idoutput(htmldata[[i]])[[2]]
+            data[[i]]$nselfcite <- idselfcite(htmldata[[i]])[[i]]
         } else {
             data[[i]]$id <- ids[i]
             data[[i]]$name <- character(0)

@@ -15,22 +15,8 @@
 #' @importFrom xml2 read_html
 citec_otherpeople <- function(id){
     tempurl <- paste("http://citec.repec.org/", id, sep = "")
-    tls <- read_html(tempurl) %>%
-        html_nodes("p b") %>%
-        html_text()
-    r1 <- grep("Works with", tls)
-    r2 <- grep("Is cited by", tls)
-    r3 <- grep("Cites to", tls)
-    splits <- c(r1, r1+1, r2, r2+1, r3, r3+1)
-    splitter2 <- function(x, pos) {
-        out <- list()
-        pos2 <- c(1, pos, length(x)+1)
-        for (i in seq_along(pos2[-1])) {
-            out[[i]] <- x[pos2[i]:(pos2[i+1]-1)]
-        }
-        return(out)
-    }
-    l1 <- splitter2(tls, splits)
-    l <- list(workswith = l1[[3]], citedby = l1[[5]], citesto = l1[[7]])
-    return(l)
+    htmldata <- read_html(tempurl)
+    tls <- idotherpeople(htmldata)
+    return(tls)
 }
+

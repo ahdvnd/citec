@@ -13,7 +13,7 @@ citec_authors_df <- function(ids){
     tempurl <- paste("http://citec.repec.org/", ids, sep = "")
     htmldata <- lapply(tempurl, function(x) read_html(x))
     data <- data.frame(id = integer(1),
-                       name <- character(1),
+                       name = character(1),
                        activesince = numeric(1),
                        affiliation = character(1),
                        hindex = numeric(1),
@@ -28,12 +28,27 @@ citec_authors_df <- function(ids){
         data[i, "name"] <- idname(htmldata[[i]])
         data[i, "activesince"] <- idactiveyr(htmldata[[i]])
         data[i, "affiliation"] <- idaffil(htmldata[[i]])
-        data[i, "hindex"] <- idhic(htmldata[[i]])[[1]]
-        data[i, "i10index"] <- idhic(htmldata[[i]])[[2]]
-        data[i, "totalcitations"] <- idhic(htmldata[[i]])[[3]]
-        data[i, "narticles"] <- idoutput(htmldata[[i]])[[1]]
-        data[i, "npapers"] <- idoutput(htmldata[[i]])[[2]]
+        t1 <- idhic(htmldata[[i]])
+        data[i, "hindex"] <- t1[[1]]
+        data[i, "i10index"] <- t1[[2]]
+        data[i, "totalcitations"] <- t1[[3]]
+        t2 <- idoutput(htmldata[[i]])
+        data[i, "narticles"] <- t2[[1]]
+        data[i, "npapers"] <- t2[[2]]
         data[i, "nselfcite"] <- idselfcite(htmldata[[i]])
+        temp <- idotherpeople(htmldata[[i]])
+        for (j in 1:30){
+            ind <- paste('workswith', j, sep = '_')
+            data[i, ind] <- temp[[1]][j]
+        }
+        for (j in 1:20){
+            ind <- paste('citedby', j, sep = '_')
+            data[i, ind] <- temp[[2]][j]
+        }
+        for (j in 1:20){
+            ind <- paste('citesto', j, sep = '_')
+            data[i, ind] <- temp[[3]][j]
+        }
     }
     return(data)
 }

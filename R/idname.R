@@ -4,5 +4,8 @@ idname <- function(x){
         html_text() %>%
         .[1] %>%
         str_sub(1, -20)
+    if (names == "") {
+        names <- NA
+    }
     return(names)
 }

@@ -2,6 +2,13 @@ idpaperlist <- function(x){
     a <- x %>%
         html_nodes("tr td") %>%
         html_text()
+    if (identical(a, character(0))) {
+        at <- data.frame(publicationyear = NA,
+                         publicationtitle = NA,
+                         publicationtype = NA,
+                         publicationcitations = NA,
+                         publicationjournal = NA)
+    } else {
     lmin <- min(which(a %in% c("paper", "article", "chapter"))) - 2
     lmax <- max(which(a %in% c("paper", "article", "chapter"))) + 1
     amod <- a[lmin:lmax]
@@ -14,5 +21,6 @@ idpaperlist <- function(x){
     at$publicationtitle <- gsub("In:.*", "", st)
     at$publicationjournal <- gsub(".*In:", "", st)
     at$publicationjournal <- gsub("\\[.*?\\]", "", at$publicationjournal)
+    }
     return(at)
 }

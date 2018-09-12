@@ -22,9 +22,9 @@ idotherpeople <- function(x){
     l1 <- splitter2(otherpeople, splits)
     if (r2 == r1+1) l1[[3]] <- NA
     if (r3 == r2+1) l1[[5]] <- NA
-    l <- list(workswith = c(l1[[3]], rep(NA, 30 - length(l1[[3]]))),
-              citedby   = c(l1[[5]], rep(NA, 20 - length(l1[[5]]))),
-              citesto   = c(l1[[7]], rep(NA, 20 - length(l1[[7]])))
+    l <- list(workswith = c(l1[[3]], rep(NA, max(0, 30 - length(l1[[3]])))),
+              citedby   = c(l1[[5]], rep(NA, max(0, 20 - length(l1[[5]])))),
+              citesto   = c(l1[[7]], rep(NA, max(0, 20 - length(l1[[7]]))))
     )
     }
     return(l)
